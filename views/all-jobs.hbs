@@ -1,6 +1,6 @@
 <div class="all-jobs-main-div">
   {{#each allJobs}}
-  <div class="job-div" onclick="location.href='/jobs/{{id}}';" style="cursor: pointer;">
+  <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
     <p>
       <strong>{{{title}}}</strong>
     </p>
