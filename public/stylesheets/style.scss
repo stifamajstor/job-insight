@@ -103,3 +103,23 @@ body {
   display: flex;
   justify-content: center;
 }
+//----------All Jobs Hbs Page---------/
+.all-jobs-main-div {
+  border: 3px solid green;
+  width: 90vh;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-div {
+  // display: flex;
+  // flex-direction: column;
+  height: 15vh;
+  border: 1px solid rgba(52, 152, 219, 1);
+  font-size: 80%;
+}
+
+.job-div p {
+  overflow-wrap: break-word;
+}

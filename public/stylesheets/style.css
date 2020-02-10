@@ -85,4 +85,19 @@ body {
   display: flex;
   justify-content: center; }
 
+.all-jobs-main-div {
+  border: 3px solid green;
+  width: 90vh;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column; }
+
+.job-div {
+  height: 15vh;
+  border: 1px solid #3498db;
+  font-size: 80%; }
+
+.job-div p {
+  overflow-wrap: break-word; }
+
 /*# sourceMappingURL=style.css.map */

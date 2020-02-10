@@ -1,8 +1,10 @@
 <div class="all-jobs-main-div">
   {{#each allJobs}}
   <div class="job-div">
-    <p>Title: {{{title}}}</p>
-
+    <p>{{{title}}}</p>
+    <p>Company: {{{company.display_name}}},&nbsp; &nbsp; &nbsp;
+      Location: {{{location.display_name}}} </p>
+    <p>{{{description}}}</p>
   </div>
   {{/each}}
 </div>
