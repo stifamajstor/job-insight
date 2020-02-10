@@ -53,7 +53,6 @@ password,
 favorite-jobs: array IDs
 
 Job
-
 id,
 Poster,
 title,
