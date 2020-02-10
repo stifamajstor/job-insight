@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const jobSchema = new Schema({
   id: String,
   poster: String,
-  title: String
+  title: String,
+  
 });
 
 const Job = mongoose.model("Job", jobSchema);

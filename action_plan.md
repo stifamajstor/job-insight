@@ -12,6 +12,7 @@ who: everyone
 
 Display one job
 GET /jobs/:id -> render a specific job with a given id
+Try to access only the city(last index in array).
 
 who: everyone
 
