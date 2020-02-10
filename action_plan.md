@@ -6,6 +6,7 @@ Which routes do we need to implement for the following features ? Who should be 
 Jobs
 Display all jobs
 GET /jobs -> render the list of all jobs
+hbs file to display all jobs is //all-jobs.hbs
 
 who: everyone
 
