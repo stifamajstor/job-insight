@@ -80,3 +80,26 @@ body {
   width: 50%;
   margin-top: 20px;
 }
+
+//----------LOGIN HBS PAGE---------/
+.login-box {
+  display: flex;
+  justify-content: center;
+  // aligns-items: center;
+  // align-content: center;
+  padding-top: 14%;
+}
+
+.login-inputs {
+  height: 4vh;
+  width: 36vh;
+}
+
+.login-btn {
+  width: 35%;
+  height: 15%;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
