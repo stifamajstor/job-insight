@@ -1,9 +1,9 @@
 <div class="all-jobs-main-div">
   {{#each allJobs}}
-  <div class="job-div">
+  <div class="job-div" onclick="location.href='/jobs/{{id}}';" style="cursor: pointer;">
     <p>{{{title}}}</p>
-    <p>Company: {{{company.display_name}}},&nbsp; &nbsp; &nbsp;
-      Location: {{{location.display_name}}} </p>
+    <span>Company: {{{company.display_name}}},</span>
+    <span>Location: {{{location.display_name}}}</span>
     <p>{{{description}}}</p>
   </div>
   {{/each}}

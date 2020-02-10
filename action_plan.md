@@ -1,7 +1,7 @@
 Job Insight
 
 Routes
-Which routes do we need to implement for the following features ? Who should be allowed to access these routes ?
+
 
 Jobs
 Display all jobs
