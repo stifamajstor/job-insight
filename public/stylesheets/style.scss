@@ -105,7 +105,6 @@ body {
 }
 //----------All Jobs Hbs Page---------/
 .all-jobs-main-div {
-  border: 3px solid green;
   width: 42vw;
   min-width: 200px;
   padding-top: 20vh;
@@ -118,8 +117,15 @@ body {
   // flex-direction: column;
   // height: 15vh;
   height: auto;
-  border: 1px solid rgba(52, 152, 219, 1);
+  border: 1.6px solid rgba(189, 195, 199, 1);
   font-size: 80%;
+}
+.job-div > p {
+  font-size: 14px;
+}
+.job-div:hover {
+  border: 1.6px solid rgba(52, 152, 219, 1);
+  transition: 0.5s;
 }
 
 .job-div p {
