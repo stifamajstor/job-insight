@@ -2,7 +2,6 @@ body {
   padding: 0;
   margin: 0;
   /* background-color: rgba(231, 76, 60, 1); */
-  background-image: url("https://images.unsplash.com/photo-1485841890310-6a055c88698a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -81,7 +80,10 @@ body {
 .login-box,
 .signup-box {
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  width: 24%;
+  margin-left: 39%;
+  margin-top: 12vh; }
 
 .login-h2,
 .signup-h2 {
@@ -98,7 +100,7 @@ body {
 .signup-btn {
   display: flex;
   justify-content: center;
-  width: 44%;
+  width: 42%;
   margin-left: 6vw;
   height: 18%;
   border-radius: 8px; }
@@ -119,6 +121,9 @@ body {
   display: flex;
   flex-direction: column; }
 
+.icon {
+  margin-left: 120px; }
+
 .all-jobs-main-div {
   width: 70vw;
   min-width: 200px;
@@ -129,15 +134,17 @@ body {
 .job-div {
   padding: 0 0.8vw;
   height: auto;
-  border: 1.6px solid #bdc3c7;
+  border-top: 1.6px solid #bdc3c7;
+  border-right: 1.6px solid #bdc3c7;
+  border-left: 1.6px solid #bdc3c7;
   font-size: 80%; }
 
 .job-div > p {
   font-size: 15px; }
 
 .job-div:hover {
-  border: 1.6px solid #3498db;
-  transition: 0.5s; }
+  transition: 0.5s;
+  box-shadow: 0 3px 20px 2.5px #3498db; }
 
 .job-div p {
   padding: 0px 0px; }
