@@ -31,7 +31,6 @@
 
   {{#each allJobs}}
   <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-<<<<<<< HEAD
     <button class="star-btn" type="submit">
       <ion-icon class="star" name="star"></ion-icon>
     </button>
@@ -40,20 +39,8 @@
     </p>
     <p class="company-name">{{{company.display_name}}}</p>
     <p>
-      <ion-icon name="location-sharp"></ion-icon>{{{location.display_name}}}
+      <ion-icon name="location-sharp"></ion-icon>{{{city}}}
     </p>
-=======
-    <p>
-      <strong>{{{title}}}</strong>
-    </p>
-    <span>Company: {{{company.display_name}}}</span><br>
-    <span>Location: {{{location.display_name}}}</span>
-    <form action="/jobs/liked" method="POST">
-      <button type="submit">
-        <ion-icon class="star" name="star"></ion-icon>
-      </button>
-    </form>
->>>>>>> 8c18803f2b40329624d629ce328c2c151a2f5fa9
 
     {{!-- <p>{{{description}}}</p> --}}
   </div>
