@@ -9,12 +9,14 @@ router.get("/search", (req, res, next) => {
       `https://api.adzuna.com/v1/api/jobs/${req.query.location}/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${req.query.jobTitle}`
     )
     .then(response => {
-      let location = response.data.results[0].location.area;
-      let singleLoc = location[location.length - 1];
+      for (let i = 0; i < response.data.results.length; i++) {
+        let arrCity = response.data.results[i].location.area;
+        response.data.results[i].city = arrCity[arrCity.length - 1];
+      }
 
       res.render("all-jobs.hbs", {
         allJobs: response.data.results,
-        location: singleLoc
+        location: req.query.location
       });
     })
     .catch(err => {
