@@ -6,9 +6,11 @@
     </p>
     <span>Company: {{{company.display_name}}}</span><br>
     <span>Location: {{{location.display_name}}}</span>
-    <button type="submit">
-      <ion-icon class="star" name="star"></ion-icon>
-    </button>
+    <form action="/jobs/liked" method="POST">
+      <button type="submit">
+        <ion-icon class="star" name="star"></ion-icon>
+      </button>
+    </form>
 
 
 
