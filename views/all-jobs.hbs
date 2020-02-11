@@ -1,8 +1,4 @@
 <nav class="nav-bar-all-jobs">
-
-
-
-
   <div class="form-all-jobs">
     <form action="/jobs/search" method="GET">
       <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />
@@ -28,12 +24,13 @@
 
 
 <div class="all-jobs-main-div">
-
   {{#each allJobs}}
   <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-    <button class="star-btn" type="submit">
-      <ion-icon class="star" name="star"></ion-icon>
-    </button>
+    <form action="/jobs/favorite" method="POST">
+      <button class="star-btn" type="submit">
+        <ion-icon class="star" name="star"></ion-icon>
+      </button>
+    </form>
     <p class="job-title">
       <strong>{{{title}}}</strong>
     </p>

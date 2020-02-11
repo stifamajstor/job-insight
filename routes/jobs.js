@@ -13,7 +13,7 @@ router.get("/search", (req, res, next) => {
         let arrCity = response.data.results[i].location.area;
         response.data.results[i].city = arrCity[arrCity.length - 1];
       }
-
+      
       res.render("all-jobs.hbs", {
         allJobs: response.data.results,
         location: req.query.location
