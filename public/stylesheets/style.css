@@ -143,7 +143,7 @@ body {
   font-size: 15px; }
 
 .job-div:hover {
-  transition: 0.5s;
+  transition: 0.2s;
   box-shadow: 0 3px 20px 2.5px #3498db; }
 
 .job-div p {
@@ -163,6 +163,9 @@ body {
   justify-content: flex-end;
   align-items: flex-start;
   cursor: pointer; }
+
+.star.active {
+  color: #f1aa0f; }
 
 .star:hover {
   color: #f1aa0f; }

@@ -170,7 +170,7 @@ body {
 }
 .job-div:hover {
   // border: 1.6px solid rgba(52, 152, 219, 1);
-  transition: 0.5s;
+  transition: 0.2s;
   box-shadow: 0 3px 20px 2.5px #3498db;
 }
 
@@ -192,6 +192,11 @@ body {
   align-items: flex-start;
   cursor: pointer;
 }
+
+.star.active {
+  color: rgba(241, 170, 15, 1);
+}
+
 .star:hover {
   color: rgba(241, 170, 15, 1);
   // background-color: yellow;

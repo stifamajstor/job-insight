@@ -26,11 +26,9 @@
 <div class="all-jobs-main-div">
   {{#each allJobs}}
   <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-    <form action="/jobs/favorite" method="POST">
-      <button class="star-btn" type="submit">
-        <ion-icon class="star" name="star"></ion-icon>
-      </button>
-    </form>
+    <button class="star-btn" type="submit">
+      <ion-icon class="star {{style}}" name="star"></ion-icon>
+    </button>
     <p class="job-title">
       <strong>{{{title}}}</strong>
     </p>
