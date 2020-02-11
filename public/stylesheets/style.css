@@ -39,8 +39,8 @@ body {
 
 .nav-bar {
   width: 100%;
-  height: 45px;
-  background-color: #bdc3c7;
+  height: 8vh;
+  background-color: #3498db;
   display: flex;
   justify-content: flex-end; }
 
@@ -63,8 +63,7 @@ body {
   justify-content: center;
   padding: 5px 5px;
   color: black;
-  border-radius: 5px;
-  background-color: #3498db; }
+  border-bottom: 2px solid black; }
 
 .item > a:hover,
 .item-all-jobs > a:hover {
@@ -79,22 +78,46 @@ body {
   width: 50%;
   margin-top: 20px; }
 
-.login-box {
-  display: flex;
-  justify-content: center;
-  padding-top: 14%; }
-
-.login-inputs {
-  height: 4vh;
-  width: 36vh; }
-
-.login-btn {
-  width: 35%;
-  height: 15%;
-  border-radius: 8px;
-  text-align: center;
+.login-box,
+.signup-box {
   display: flex;
   justify-content: center; }
+
+.login-h2,
+.signup-h2 {
+  color: #3498db;
+  font-size: 35px;
+  padding-top: 18vh; }
+
+.login-inputs,
+.signup-inputs {
+  height: 35px;
+  width: 280px; }
+
+.login-btn,
+.signup-btn {
+  display: flex;
+  justify-content: center;
+  width: 44%;
+  margin-left: 6vw;
+  height: 18%;
+  border-radius: 8px; }
+
+.login-btn:hover,
+.signup-btn:hover {
+  background-color: #3498db;
+  color: white;
+  transition: 0.3s; }
+
+.signup-h2,
+.login-h2 {
+  display: flex;
+  justify-content: center;
+  align-content: center; }
+
+#form-container {
+  display: flex;
+  flex-direction: column; }
 
 .all-jobs-main-div {
   width: 70vw;
@@ -141,7 +164,7 @@ body {
   display: flex;
   width: 100%;
   height: 8vh;
-  background-color: #bdc3c7;
+  background-color: #3498db;
   display: flex;
   justify-content: center;
   padding-bottom: 14px; }
