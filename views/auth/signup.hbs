@@ -1,24 +1,26 @@
-<h2>Signup</h2>
+<h2 class="signup-h2">Signup</h2>
+<div class="signup-box">
 
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
+  <form action="/auth/signup" method="POST" id="form-container">
 
-  <br><br>
+    <ion-icon name="person"></ion-icon>
+    <input id="username" class="signup-inputs" type="text" name="username" placeholder="Username">
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
+    <ion-icon name="lock-closed"></ion-icon>
+
+    <input id="password" class="signup-inputs" type="password" name="password" placeholder="Password">
+    <br>
+    {{#if message }}
     <div class="error-message">{{ message }}</div>
-  {{/if}}
+    {{/if}}
+    <button class="signup-btn">Create account</button>
 
-  <br><br>
+    <p class="account-message">
+      Do you already have an account?
+      <a href="/auth/login">Login</a>
+    </p>
 
-  <button>Create account</button>
 
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+  </form>
+
+</div>
