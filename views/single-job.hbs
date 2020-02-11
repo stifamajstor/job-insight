@@ -70,6 +70,17 @@
 </div>
 
 
+<form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
+    <button type="submit">Favorite</button>
+</form>
+
+{{#if addedToFav}}
+<div>
+    Added to Favorites
+</div>
+{{/if}}
+
+
 {{!-- <div>
     {{location}}
 </div>
