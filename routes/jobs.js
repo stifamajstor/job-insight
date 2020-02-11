@@ -25,22 +25,19 @@ router.get("/:id", (req, res, next) => {
       `https://api.adzuna.com/v1/api/jobs/${req.query.location}/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${req.params.id}`
     )
     .then(response => {
-      res.send(response.data.results);
+      let location = response.data.results[0].location.area;
+      let singleLoc = location[location.length - 1];
+      console.log(response.data.results[0].redirect_url);
+      console.log(response.data.results[0].redirect_url);
+
+      console.log(response.data.results[0].redirect_url);
+
+      // res.send(response.data.results[0]);
+      res.render("./single-job.hbs", {
+        jobData: response.data.results[0],
+        location: singleLoc
+      });
     });
-  // console.log("request.params: ", req.params.id);
-  // console.log("request.query: ", req.query);
-
-  // res.send(data.data.results);
-
-  // const jobId = request.params.id;
-
-  // const movie = moviesJSON.find(el => {
-  //   if (el.imdbID === movieId) {
-  //     return true;
-  //   }
-  // });
-
-  // response.render("movie.hbs", movie);
 });
 
 // router.get("/", (req, res) => {
