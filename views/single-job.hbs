@@ -1,11 +1,74 @@
-<p>{{jobData.title}}</p>
-<p>{{jobData.created}}</p>
-<p>{{jobData.company.displayName}}</p>
-<p>{{location2}}</p>
-<p>{{jobData.contract_time}}</p>
-<p>{{jobData.description}}</p>
+<nav class="nav-bar-all-jobs">
+    <div class="form-all-jobs">
+        <form action="/jobs/search" method="GET">
+            <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />
+            <input class="input-fields-all-jobs" name="location" placeholder="Location" type="text" />
+            <button class="btn-all-jobs" type="submit">
+                <ion-icon class="search-icon" name="search"></ion-icon>
+            </button>
+        </form>
+    </div>
+    {{#if user}}
+    <ul class="list-all-jobs">
+        <li class="item-all-jobs"><a href="/auth/logout">Log out</a></li>
+    </ul>
+    {{else}}
+    <ul>
+        <li class="item-all-jobs"><a href="/auth/signup">Sign up</a></li>
+        <li class="item-all-jobs"><a href="/auth/login">Log in</a></li>
+    </ul>
+    {{/if}}
+</nav>
+<div class="main-div">
+    <div class="title">
+        <strong>
+            <p>{{jobData.title}}</p>
+            <hr class="title-hr">
+        </strong>
+    </div>
 
-<a href="{{jobData.redirect_url}}"><button>Apply</button></a>
+    <div>
+        <p class="date">{{jobData.created}}</p>
+    </div>
+
+
+    <div class="comapny-location-contract">
+        <p>{{jobData.company.display_name}}</p>
+        <p>
+            <ion-icon name="location"></ion-icon>&nbsp;{{location}}
+        </p>
+        <p>
+            <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
+        </p>
+    </div>
+
+    {{!-- <div class="company-name">
+    <p>{{jobData.company.displayName}}</p>
+  </div> --}}
+    {{!-- <div class="location">
+    <p>
+      <ion-icon name="location"></ion-icon>&nbsp;{{location}}
+    </p>
+  </div> --}}
+    {{!-- <div class="contract-type">
+    <p>
+      <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
+    </p>
+  </div> --}}
+
+
+
+
+
+
+    <div class="description">
+        <p>{{jobData.description}}</p>
+    </div>
+
+
+    <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
+</div>
+
 
 {{!-- <div>
     {{location}}
