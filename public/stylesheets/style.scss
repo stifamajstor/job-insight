@@ -11,6 +11,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 79vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .form {
@@ -53,12 +54,20 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
-.item {
+.list,
+.list-all-jobs {
+  display: flex;
+  justify-content: flex-end;
+  float: right;
+}
+.item,
+.item-all-jobs {
   list-style-type: none;
   display: flex;
+  justify-content: flex-end;
 }
-.item > a {
+.item > a,
+.item-all-jobs > a {
   text-decoration: none;
   display: flex;
   justify-content: center;
@@ -67,7 +76,8 @@ body {
   border-radius: 5px;
   background-color: rgba(52, 152, 219, 1);
 }
-.item > a:hover {
+.item > a:hover,
+.item-all-jobs > a:hover {
   /* background-color: white; */
   color: white;
   border: 2px solid rgba(52, 152, 219, 1);
@@ -105,9 +115,9 @@ body {
 }
 //----------All Jobs Hbs Page---------/
 .all-jobs-main-div {
-  width: 42vw;
+  width: 70vw;
   min-width: 200px;
-  padding-top: 20vh;
+  padding: 10vh 15vw;
   display: flex;
   flex-direction: column;
 }
@@ -116,12 +126,13 @@ body {
   // display: flex;
   // flex-direction: column;
   // height: 15vh;
+  padding: 0 0.8vw;
   height: auto;
   border: 1.6px solid rgba(189, 195, 199, 1);
   font-size: 80%;
 }
 .job-div > p {
-  font-size: 14px;
+  font-size: 15px;
 }
 .job-div:hover {
   border: 1.6px solid rgba(52, 152, 219, 1);
@@ -129,14 +140,65 @@ body {
 }
 
 .job-div p {
-  overflow-wrap: break-word;
+  // overflow-wrap: break-word;
+  padding: 0px 0px;
 }
-
+.star-btn {
+  float: right;
+  background-color: transparent;
+  border: none;
+  padding-top: 1.5vh;
+  padding-right: 1vw;
+}
 .star {
   width: 26.5px;
   height: 26.5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  cursor: pointer;
 }
 .star:hover {
   color: rgba(241, 170, 15, 1);
   // background-color: yellow;
+}
+.nav-bar-all-jobs {
+  display: flex;
+  width: 100%;
+  height: 8vh;
+  background-color: rgba(189, 195, 199, 1);
+  display: flex;
+  justify-content: center;
+  padding-bottom: 14px;
+}
+
+.form-all-jobs {
+  display: flex;
+  padding-top: 4vh;
+  align-content: flex-end;
+}
+
+.input-fields-all-jobs {
+  background-color: rgba(236, 240, 241, 1);
+  height: 1.6vw;
+  width: 28vh;
+  border-radius: 10px;
+}
+
+.btn-all-jobs {
+  height: 35px;
+  width: 60px;
+  border-radius: 5px;
+  background-color: rgba(52, 152, 219, 1);
+}
+
+.btn-all-jobs:hover {
+  background-color: rgba(52, 152, 219, 1);
+  color: white;
+}
+.job-title {
+  color: rgba(52, 152, 219, 1);
+}
+.company-name {
+  font-size: 40px;
 }

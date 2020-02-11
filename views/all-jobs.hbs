@@ -1,18 +1,48 @@
+<nav class="nav-bar-all-jobs">
+
+
+
+
+  <div class="form-all-jobs">
+    <form action="/jobs/search" method="GET">
+      <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />
+      <input class="input-fields-all-jobs" name="location" placeholder="Location" type="text" />
+      <button class="btn-all-jobs" type="submit">
+        <ion-icon class="search-icon" name="search"></ion-icon>
+      </button>
+    </form>
+  </div>
+  {{#if user}}
+  <ul class="list-all-jobs">
+    <li class="item-all-jobs"><a href="/auth/logout">Log out</a></li>
+  </ul>
+  {{else}}
+  <ul>
+    <li class="item-all-jobs"><a href="/auth/signup">Sign up</a></li>
+    <li class="item-all-jobs"><a href="/auth/login">Log in</a></li>
+  </ul>
+  {{/if}}
+</nav>
+
+
+
+
 <div class="all-jobs-main-div">
+
   {{#each allJobs}}
   <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-    <p>
-      <strong>{{{title}}}</strong>
-    </p>
-    <span>Company: {{{company.display_name}}}</span><br>
-    <span>Location: {{{location.display_name}}}</span>
-    <button type="submit">
+    <button class="star-btn" type="submit">
       <ion-icon class="star" name="star"></ion-icon>
     </button>
+    <p class="job-title">
+      <strong>{{{title}}}</strong>
+    </p>
+    <p class="company-name">{{{company.display_name}}}</p>
+    <p>
+      <ion-icon name="location-sharp"></ion-icon>{{{location.display_name}}}
+    </p>
 
-
-
-    <p>{{{description}}}</p>
+    {{!-- <p>{{{description}}}</p> --}}
   </div>
   {{/each}}
 </div>
