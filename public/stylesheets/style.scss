@@ -328,14 +328,20 @@ body {
   background-color: rgba(52, 152, 219, 1);
 }
 .learn-more-btn:hover,
-.apply-btn:hover,
-.favorite-btn:hover {
+.apply-btn:hover {
   box-shadow: 0 3px 13px 1.25px #3498db;
   color: white;
   transition: 0.2s;
   cursor: pointer;
 }
-
+.favorite-btn:hover {
+  background-color: rgba(241, 170, 15, 1);
+  box-shadow: 0 1px 10px 0.5px rgba(241, 170, 15, 1);
+}
+.favorite-btn.active {
+  background-color: rgba(241, 170, 15, 1);
+  box-shadow: 0 1px 10px 0.5px rgba(241, 170, 15, 1);
+}
 .map {
   // border: 2px solid darkgrey;
   height: 37vh;
