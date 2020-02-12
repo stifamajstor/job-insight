@@ -21,15 +21,24 @@ body {
   text-decoration: none;
   border: 1px solid red;
   font-size: 20px;
-  color: white; }
+  color: white;
+  padding-left: 25px; }
+
+.logo > a {
+  text-decoration: none;
+  color: inherit;
+  font-family: Tahoma, Geneva, Verdana, sans-serif; }
 
 .form {
-  padding-top: 20vh;
+  padding-top: 15vh;
   display: flex;
   justify-content: center;
   align-content: center; }
 
 .search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 20px; }
 
 .input-fields {
@@ -60,7 +69,7 @@ body {
   height: 8vh;
   background-color: #3498db;
   display: flex;
-  justify-content: flex-end; }
+  justify-content: space-between; }
 
 .list,
 .list-all-jobs {
@@ -79,7 +88,7 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: center;
-  padding: 5px 5px;
+  padding: 5px 20px;
   color: black;
   border-bottom: 2px solid black; }
 
@@ -147,7 +156,7 @@ body {
 .all-jobs-main-div {
   width: 70vw;
   min-width: 200px;
-  padding: 10vh 15vw;
+  padding: 5vh 15vw;
   display: flex;
   flex-direction: column; }
 
@@ -195,14 +204,13 @@ body {
   width: 100%;
   height: 8vh;
   background-color: #3498db;
-  display: flex;
-  justify-content: center;
-  padding-bottom: 14px; }
+  justify-content: space-between; }
 
 .form-all-jobs {
   display: flex;
   padding-top: 4vh;
-  align-content: flex-end; }
+  align-content: flex-end;
+  justify-content: center; }
 
 .input-fields-all-jobs {
   background-color: #ecf0f1;
@@ -211,9 +219,11 @@ body {
   border-radius: 10px; }
 
 .btn-all-jobs {
-  height: 35px;
+  justify-content: center;
+  height: 30px;
   width: 60px;
   border-radius: 5px;
+  cursor: pointer;
   background-color: #3498db; }
 
 .btn-all-jobs:hover {
@@ -229,8 +239,7 @@ body {
 .main-div {
   display: flex;
   flex-direction: column;
-  height: 50vh;
-  border: 1px solid red; }
+  height: 50vh; }
 
 .title {
   display: flex;
@@ -253,17 +262,21 @@ body {
   text-align: center;
   justify-content: center;
   padding: 0 200px;
+  margin-bottom: 20px;
   word-spacing: 0.8px;
-  letter-spacing: 0.5px; }
+  letter-spacing: 0.5px;
+  box-shadow: 0 0.4px 8px 0.1px grey; }
 
 .buttons {
   display: flex;
   padding-top: 20px;
   justify-content: space-evenly;
-  padding: 20px 400px; }
+  padding: 20px 400px;
+  box-shadow: 0 0.4px 8px 0.1px grey; }
 
 .learn-more-btn,
-.apply-btn {
+.apply-btn,
+.favorite-btn {
   color: white;
   height: 40px;
   width: 120px;
@@ -271,14 +284,18 @@ body {
   background-color: #3498db; }
 
 .learn-more-btn:hover,
-.apply-btn:hover {
+.apply-btn:hover,
+.favorite-btn:hover {
   box-shadow: 0 3px 13px 1.25px #3498db;
   color: white;
   transition: 0.2s;
   cursor: pointer; }
 
 .map {
-  border: 2px solid darkgrey;
   height: 37vh; }
+
+.main-info {
+  box-shadow: 0 0.4px 8px 0.1px grey;
+  margin-bottom: 20px; }
 
 /*# sourceMappingURL=style.css.map */
