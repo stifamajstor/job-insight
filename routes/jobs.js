@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const Job = require("../models/Job");
+const moment = require("moment");
 
 //DISPLAY ALL JOBS
 router.get("/search", (req, res, next) => {
@@ -14,8 +15,9 @@ router.get("/search", (req, res, next) => {
         let arrCity = response.data.results[i].location.area;
         response.data.results[i].city = arrCity[arrCity.length - 1];
 
-        // let posted = response.data.results[i].created
-        // response.data.results[i].created = Date.now()- posted
+        let posted = response.data.results[i].created;
+        response.data.results[i].created = moment(posted).fromNow();
+
         // if (req.user.favorite_jobs.includes(response.data.results[i].id)) {
         // if (i % 2 === 0) response.data.results[i].style = "active";
         // }
@@ -42,6 +44,9 @@ router.get("/:id", (req, res, next) => {
     .then(response => {
       let location = response.data.results[0].location.area;
       let singleLoc = location[location.length - 1];
+
+      let posted = response.data.results[0].created;
+      response.data.results[0].created = moment(posted).fromNow();
 
       // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
