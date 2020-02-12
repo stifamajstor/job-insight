@@ -27,44 +27,23 @@
         </strong>
     </div>
 
-    <div>
-        <p class="date">{{jobData.created}}</p>
-    </div>
-
-
-    <div class="comapny-location-contract">
+    <div class="info">
         <p>{{jobData.company.display_name}}</p>
         <p>
-            <ion-icon name="location"></ion-icon>&nbsp;{{location}}
+            <ion-icon name="location"></ion-icon>&nbsp;{{location2}}
         </p>
         <p>
             <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
         </p>
+
     </div>
 
-    {{!-- <div class="company-name">
-    <p>{{jobData.company.displayName}}</p>
-  </div> --}}
-    {{!-- <div class="location">
-    <p>
-      <ion-icon name="location"></ion-icon>&nbsp;{{location}}
-    </p>
-  </div> --}}
-    {{!-- <div class="contract-type">
-    <p>
-      <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
-    </p>
-  </div> --}}
-
-
-
-
-
-
+    <div class="created">
+        <p class="date">{{jobData.created}}</p>
+    </div>
     <div class="description">
         <p>{{jobData.description}}</p>
     </div>
-
 
     <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
 </div>

@@ -8,14 +8,29 @@ body {
   height: 79vh;
   font-family: Arial, Helvetica, sans-serif; }
 
+.login-page {
+  background-image: url(/images/login1.jpg);
+  background-size: cover;
+  height: 100vh; }
+
 .logo {
-  margin-right: 90%; }
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  text-decoration: none;
+  border: 1px solid red;
+  font-size: 20px;
+  color: white; }
 
 .form {
   padding-top: 20vh;
   display: flex;
   justify-content: center;
   align-content: center; }
+
+.search-icon {
+  font-size: 20px; }
 
 .input-fields {
   background-color: #ecf0f1;
@@ -24,6 +39,7 @@ body {
   border-radius: 10px; }
 
 .btn {
+  padding-bottom: 10px;
   height: 50px;
   width: 80px;
   border-radius: 5px;
@@ -76,9 +92,10 @@ body {
   border-radius: 5px; }
 
 .main-hr {
-  border: 1.3px solid #3498db;
+  border-top: 1.3px solid #3498db;
   width: 50%;
-  margin-top: 20px; }
+  margin-top: 20px;
+  box-shadow: 0 3px 20px 2.5px #3498db; }
 
 .login-box,
 .signup-box {
@@ -210,42 +227,34 @@ body {
   font-size: 40px; }
 
 .main-div {
+  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
-  width: 100vw;
   height: 50vh; }
 
 .title {
   display: flex;
   justify-content: center;
-  font-size: 20px;
-  margin-top: 4vh; }
+  font-size: 25px; }
 
-.title-hr {
-  border-bottom: 1px solid #3498db;
-  box-shadow: 0 3px 20px 2.5px #3498db; }
+.info {
+  display: flex;
+  justify-content: space-evenly; }
 
-.date {
+.created {
   display: flex;
   justify-content: flex-end;
-  margin-right: 2%; }
-
-.company-name,
-.location,
-.contract-type {
-  color: red;
-  display: flex;
-  margin-left: 1vw;
-  width: 18vw;
-  border: 1px solid blue; }
+  align-items: flex-start;
+  border: 1px solid blue;
+  padding-right: 20px; }
 
 .description {
-  display: inline;
-  border: 1px solid green;
-  width: 60vw;
-  margin-left: 20vw;
+  display: flex;
   text-align: center;
-  margin-bottom: 10vh; }
+  justify-content: center;
+  padding: 0 200px;
+  border: 1px solid yellow;
+  word-spacing: 0.8px;
+  letter-spacing: 0.5px; }
 
 /*# sourceMappingURL=style.css.map */

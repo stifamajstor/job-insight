@@ -40,7 +40,7 @@ router.get("/:id", (req, res, next) => {
       let location = response.data.results[0].location.area;
       let singleLoc = location[location.length - 1];
 
-      res.send(response.data.results[0]);
+      // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
         location2: singleLoc,
