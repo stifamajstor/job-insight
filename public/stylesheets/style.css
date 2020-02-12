@@ -292,7 +292,8 @@ body {
 
 .favorite-btn:hover {
   background-color: #f1aa0f;
-  box-shadow: 0 1px 10px 0.5px #f1aa0f; }
+  box-shadow: 0 1px 10px 0.5px #f1aa0f;
+  cursor: pointer; }
 
 .favorite-btn.active {
   background-color: #f1aa0f;
@@ -302,7 +303,11 @@ body {
   height: 37vh; }
 
 .main-info {
-  box-shadow: 0 0.4px 8px 0.1px grey;
-  margin-bottom: 20px; }
+  box-shadow: 0 0.4px 8px 0.1px grey; }
+
+.main-info,
+.description,
+.buttons {
+  margin: 14px 40px; }
 
 /*# sourceMappingURL=style.css.map */
