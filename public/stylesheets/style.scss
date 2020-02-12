@@ -17,7 +17,7 @@ body {
   background-image: url(/images/login1.jpg);
   background-size: cover;
   height: 100vh;
-  filter: blur(8px);
+  // filter: blur(8px);
 }
 .logo {
   display: flex;
@@ -325,7 +325,7 @@ body {
   height: 40px;
   width: 120px;
   border-radius: 5px;
-  background-color: rgba(52, 152, 219, 1);
+  // background-color: rgba(52, 152, 219, 1);
 }
 .learn-more-btn:hover,
 .apply-btn:hover {

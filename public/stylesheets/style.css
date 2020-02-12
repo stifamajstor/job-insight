@@ -11,8 +11,7 @@ body {
 .login-page {
   background-image: url(/images/login1.jpg);
   background-size: cover;
-  height: 100vh;
-  filter: blur(8px); }
+  height: 100vh; }
 
 .logo {
   display: flex;
@@ -281,8 +280,7 @@ body {
   color: white;
   height: 40px;
   width: 120px;
-  border-radius: 5px;
-  background-color: #3498db; }
+  border-radius: 5px; }
 
 .learn-more-btn:hover,
 .apply-btn:hover {
