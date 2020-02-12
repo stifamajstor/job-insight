@@ -11,7 +11,8 @@ body {
 .login-page {
   background-image: url(/images/login1.jpg);
   background-size: cover;
-  height: 100vh; }
+  height: 100vh;
+  filter: blur(8px); }
 
 .logo {
   display: flex;
