@@ -284,12 +284,19 @@ body {
   background-color: #3498db; }
 
 .learn-more-btn:hover,
-.apply-btn:hover,
-.favorite-btn:hover {
+.apply-btn:hover {
   box-shadow: 0 3px 13px 1.25px #3498db;
   color: white;
   transition: 0.2s;
   cursor: pointer; }
+
+.favorite-btn:hover {
+  background-color: #f1aa0f;
+  box-shadow: 0 1px 10px 0.5px #f1aa0f; }
+
+.favorite-btn.active {
+  background-color: #f1aa0f;
+  box-shadow: 0 1px 10px 0.5px #f1aa0f; }
 
 .map {
   height: 37vh; }
