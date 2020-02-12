@@ -55,6 +55,18 @@ router.get("/:id", (req, res, next) => {
       let location = response.data.results[0].location.area;
       let singleLoc = location[location.length - 1];
 
+      let posted = response.data.results[0].created;
+      response.data.results[0].created = moment(posted).fromNow();
+
+      let contractType = response.data.results[0].contract_time;
+      if (contractType === "full_time") {
+        response.data.results[0].contract_time = "Full Time";
+      } else if (contractType === "part_time") {
+        response.data.results[0].contract_time = "Part Time";
+      } else if (contractType === "permanent") {
+        response.data.results[0].contract_time = "Permanent";
+      }
+
       // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
