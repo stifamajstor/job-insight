@@ -1,13 +1,8 @@
 <nav class="nav-bar-all-jobs">
-    <div class="form-all-jobs">
-        <form action="/jobs/search" method="GET">
-            <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />
-            <input class="input-fields-all-jobs" name="location" placeholder="Location" type="text" />
-            <button class="btn-all-jobs" type="submit">
-                <ion-icon class="search-icon" name="search"></ion-icon>
-            </button>
-        </form>
+    <div class="logo">
+        <a href="#">Job Insight</a>
     </div>
+    {{!-- form --}}
     {{#if user}}
     <ul class="list-all-jobs">
         <li class="item-all-jobs"><a href="/auth/logout">Log out</a></li>
@@ -21,28 +16,40 @@
 </nav>
 
 <div class="main-div">
-    <div class="title">
-        <strong>
-            <p>{{jobData.title}}</p>
-            <hr class="title-hr">
-        </strong>
+    <div class="form-all-jobs">
+        <form action="/jobs/search" method="GET">
+            <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />
+            <input class="input-fields-all-jobs" name="location" placeholder="Location" type="text" />
+            <button class="btn-all-jobs" type="submit">
+                <ion-icon class="search-icon" name="search"></ion-icon>
+            </button>
+        </form>
+    </div>
+    <div class="main-info">
+        <div class="title">
+            <strong>
+                <p>{{jobData.title}}</p>
+                <hr class="title-hr">
+            </strong>
+        </div>
+
+        <div class="info">
+            <p>
+                <ion-icon name="briefcase"></ion-icon>&nbsp;{{jobData.company.display_name}}
+            </p>
+            <p>
+                <ion-icon name="location"></ion-icon>&nbsp;{{jobData.location}}
+            </p>
+            <p>
+                <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
+            </p>
+
+            <p class="date">
+                <ion-icon name="calendar"></ion-icon>&nbsp;{{jobData.created}}
+            </p>
+        </div>
     </div>
 
-    <div class="info">
-        <p>
-            <ion-icon name="briefcase"></ion-icon>&nbsp;{{jobData.company.display_name}}
-        </p>
-        <p>
-            <ion-icon name="location"></ion-icon>&nbsp;{{jobData.location}}
-        </p>
-        <p>
-            <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
-        </p>
-
-        <p class="date">
-            <ion-icon name="calendar"></ion-icon>&nbsp;{{jobData.created}}
-        </p>
-    </div>
 
     {{!-- <div class="created">
     </div> --}}
@@ -54,7 +61,7 @@
         <a href="{{jobData.redirect_url}}"><button class="learn-more-btn">Learn More</button></a>
         {{#if user}}
         <form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
-            <button type="submit">Favorite</button>
+            <button type="submit" class="favorite-btn">Favorite</button>
         </form>
         {{/if}}
 
@@ -65,6 +72,7 @@
         </div>
         {{/if}}
     </div>
+
 
 </div>
 {{!-- <div>
