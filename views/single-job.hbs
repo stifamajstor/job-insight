@@ -19,6 +19,7 @@
     </ul>
     {{/if}}
 </nav>
+
 <div class="main-div">
     <div class="title">
         <strong>
@@ -31,11 +32,10 @@
         <p class="date">{{jobData.created}}</p>
     </div>
 
-
     <div class="comapny-location-contract">
         <p>{{jobData.company.display_name}}</p>
         <p>
-            <ion-icon name="location"></ion-icon>&nbsp;{{location}}
+            <ion-icon name="location"></ion-icon>&nbsp;{{location2}}
         </p>
         <p>
             <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
@@ -56,23 +56,19 @@
     </p>
   </div> --}}
 
-
-
-
-
-
     <div class="description">
         <p>{{jobData.description}}</p>
     </div>
 
-
     <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
 </div>
 
-
+{{#if user}}
 <form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
     <button type="submit">Favorite</button>
 </form>
+{{/if}}
+
 
 {{#if addedToFav}}
 <div>

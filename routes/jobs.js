@@ -14,15 +14,18 @@ router.get("/search", (req, res, next) => {
         let arrCity = response.data.results[i].location.area;
         response.data.results[i].city = arrCity[arrCity.length - 1];
 
+        // let posted = response.data.results[i].created
+        // response.data.results[i].created = Date.now()- posted
         // if (req.user.favorite_jobs.includes(response.data.results[i].id)) {
-        if (i % 2 === 0) response.data.results[i].style = "active";
+        // if (i % 2 === 0) response.data.results[i].style = "active";
         // }
       }
 
       res.render("all-jobs.hbs", {
         allJobs: response.data.results,
         location: req.query.location,
-        jobTitle: req.query.jobTitle
+        jobTitle: req.query.jobTitle,
+        user: req.user
       });
     })
     .catch(err => {
@@ -40,13 +43,14 @@ router.get("/:id", (req, res, next) => {
       let location = response.data.results[0].location.area;
       let singleLoc = location[location.length - 1];
 
-      res.send(response.data.results[0]);
+      // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
         location2: singleLoc,
         addedToFav: false,
         jobTitle: req.query.jobTitle,
-        location: req.query.location
+        location: req.query.location,
+        user: req.user
       });
     });
 });
