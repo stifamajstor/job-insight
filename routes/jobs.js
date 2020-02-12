@@ -6,6 +6,14 @@ const User = require("../models/User");
 const moment = require("moment");
 const url = require("url");
 
+const loginCheck = (req, res, next) => {
+  if (req.user) {
+    next();
+  } else {
+    res.redirect("/");
+  }
+};
+
 //DISPLAY ALL JOBS
 router.get("/search", (req, res, next) => {
   axios
@@ -28,13 +36,13 @@ router.get("/search", (req, res, next) => {
         } else if (contractType === "permanent") {
           response.data.results[i].contract_time = "Permanent";
         }
-        if (req.user.favorite_jobs.includes(response.data.results[i].id)) {
+        if (
+          req.user &&
+          req.user.favorite_jobs.includes(response.data.results[i].id)
+        ) {
           response.data.results[i].style = "active";
-          console.log(response.data.results[i].style);
         }
       }
-      // if (i % 2 === 0) response.data.results[i].style = "active";
-      // }
 
       // res.send(response.data.results);
       res.render("all-jobs.hbs", {
@@ -52,6 +60,10 @@ router.get("/search", (req, res, next) => {
 //DISPLAY SINGLE JOB
 router.get("/:id", (req, res, next) => {
   let addedToFav;
+
+  if (!req.user) {
+    return res.redirect("/auth/login");
+  }
 
   User.findById(req.user._id)
     .then(user => {
@@ -82,11 +94,12 @@ router.get("/:id", (req, res, next) => {
           } else if (contractType === "permanent") {
             response.data.results[0].contract_time = "Permanent";
           }
-          console.log(response.data.results[0].id);
 
-          if (req.user.favorite_jobs.includes(response.data.results[0].id)) {
+          if (
+            req.user &&
+            req.user.favorite_jobs.includes(response.data.results[0].id)
+          ) {
             response.data.results[0].style = "active";
-            console.log(response.data.results[0].style);
           }
 
           // res.send(response.data.results[0]);
@@ -105,10 +118,49 @@ router.get("/:id", (req, res, next) => {
     });
 });
 
+//CREATE A JOB
+
+router.get("/create", loginCheck, (req, res) => {
+  res.render("/create-job.hbs");
+});
+router.post("/jobs", loginCheck, (req, res, next) => {
+  console.log("CONSOLE OUTPUT HERE", req.body);
+  const { title, company, description, contractType, redirectURL } = req.body;
+  Job.create({
+    title,
+    company,
+    description,
+    contractType,
+    redirectURL,
+    owner: req.user._id
+  })
+    .then(() => {
+      //maybe add new job id in the User DB?
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log(err, "ERROR HERE");
+      next(err);
+    });
+});
+
+//DISPLAY CREATED JOBS
+router.get("/created", (req, res, next) => {
+  //perhaps check if user has any IDs in created jobs array and if so generate page accordingly
+  Job.findById(req.user._id)
+    .then(user => {
+      if (user.favorite_jobs.includes(req.params.id)) {
+        addedToFav = true;
+      } else {
+        addedToFav = false;
+      }
+    })
+    .then(output => {});
+});
+
 //ADD TO FAV
 router.post("/favorite/:id", (req, res, next) => {
   let userId = req.user._id;
-  console.log(req.query);
 
   User.findOneAndUpdate(
     { _id: userId },
