@@ -19,6 +19,7 @@
     </ul>
     {{/if}}
 </nav>
+
 <div class="main-div">
     <div class="title">
         <strong>
@@ -46,12 +47,15 @@
     </div>
 
     <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
+    <a href="{{jobData.redirect_url}}"><button>Learn More</button></a>
 </div>
 
-
+{{#if user}}
 <form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
     <button type="submit">Favorite</button>
 </form>
+{{/if}}
+
 
 {{#if addedToFav}}
 <div>
