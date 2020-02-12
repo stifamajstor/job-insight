@@ -29,7 +29,9 @@
     </div>
 
     <div class="info">
-        <p>{{jobData.company.display_name}}</p>
+        <p>
+            <ion-icon name="briefcase"></ion-icon>&nbsp;{{jobData.company.display_name}}
+        </p>
         <p>
             <ion-icon name="location"></ion-icon>&nbsp;{{location2}}
         </p>
@@ -37,35 +39,34 @@
             <ion-icon name="time"></ion-icon>&nbsp;{{jobData.contract_time}}
         </p>
 
+        <p class="date">
+            <ion-icon name="calendar"></ion-icon>&nbsp;{{jobData.created}}
+        </p>
     </div>
 
-    <div class="created">
-        <p class="date">{{jobData.created}}</p>
-    </div>
+    {{!-- <div class="created">
+    </div> --}}
     <div class="description">
         <p>{{jobData.description}}</p>
     </div>
     <div class="buttons">
-        <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
-        <a href="{{jobData.redirect_url}}"><button>Learn More</button></a>
+        <a href="{{jobData.redirect_url}}"><button class="apply-btn">Apply</button></a>
+        <a href="{{jobData.redirect_url}}"><button class="learn-more-btn">Learn More</button></a>
+        {{#if user}}
+        <form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
+            <button type="submit">Favorite</button>
+        </form>
+        {{/if}}
+
+
+        {{#if addedToFav}}
+        <div>
+            Added to Favorites
+        </div>
+        {{/if}}
     </div>
 
 </div>
-
-{{#if user}}
-<form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
-    <button type="submit">Favorite</button>
-</form>
-{{/if}}
-
-
-{{#if addedToFav}}
-<div>
-    Added to Favorites
-</div>
-{{/if}}
-
-
 {{!-- <div>
     {{location}}
 </div>
@@ -73,6 +74,4 @@
     {{jobData.id}}
 </div> --}}
 {{!-- {{#if !user}} --}}
-
-
-<p>MAP</p>
+<p class="map">MAP</p>

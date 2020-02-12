@@ -227,10 +227,10 @@ body {
   font-size: 40px; }
 
 .main-div {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
-  height: 50vh; }
+  height: 50vh;
+  border: 1px solid red; }
 
 .title {
   display: flex;
@@ -239,13 +239,13 @@ body {
 
 .info {
   display: flex;
-  justify-content: space-evenly; }
+  justify-content: space-evenly;
+  padding: 15px 180px; }
 
 .created {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  border: 1px solid blue;
   padding-right: 20px; }
 
 .description {
@@ -253,7 +253,6 @@ body {
   text-align: center;
   justify-content: center;
   padding: 0 200px;
-  border: 1px solid yellow;
   word-spacing: 0.8px;
   letter-spacing: 0.5px; }
 
@@ -261,6 +260,25 @@ body {
   display: flex;
   padding-top: 20px;
   justify-content: space-evenly;
-  border: 1px solid lightblue; }
+  padding: 20px 400px; }
+
+.learn-more-btn,
+.apply-btn {
+  color: white;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: #3498db; }
+
+.learn-more-btn:hover,
+.apply-btn:hover {
+  box-shadow: 0 3px 13px 1.25px #3498db;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer; }
+
+.map {
+  border: 2px solid darkgrey;
+  height: 37vh; }
 
 /*# sourceMappingURL=style.css.map */

@@ -264,10 +264,10 @@ body {
 }
 //------------Single JOb HBS------------------/
 .main-div {
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   height: 50vh;
+  border: 1px solid red;
 }
 
 .title {
@@ -279,13 +279,14 @@ body {
   display: flex;
   justify-content: space-evenly;
   // font-weight: 700;
+  // padding-top: 30px;
+  padding: 15px 180px;
 }
 
 .created {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  border: 1px solid blue;
   padding-right: 20px;
 }
 
@@ -294,7 +295,6 @@ body {
   text-align: center;
   justify-content: center;
   padding: 0 200px;
-  border: 1px solid yellow;
   word-spacing: 0.8px;
   letter-spacing: 0.5px;
 }
@@ -302,5 +302,26 @@ body {
   display: flex;
   padding-top: 20px;
   justify-content: space-evenly;
-  border: 1px solid lightblue;
+  padding: 20px 400px;
+}
+
+.learn-more-btn,
+.apply-btn {
+  color: white;
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: rgba(52, 152, 219, 1);
+}
+.learn-more-btn:hover,
+.apply-btn:hover {
+  box-shadow: 0 3px 13px 1.25px #3498db;
+  color: white;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.map {
+  border: 2px solid darkgrey;
+  height: 37vh;
 }
