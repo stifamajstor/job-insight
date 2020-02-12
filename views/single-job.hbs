@@ -45,9 +45,11 @@
     <div class="description">
         <p>{{jobData.description}}</p>
     </div>
+    <div class="buttons">
+        <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
+        <a href="{{jobData.redirect_url}}"><button>Learn More</button></a>
+    </div>
 
-    <a href="{{jobData.redirect_url}}"><button>Apply</button></a>
-    <a href="{{jobData.redirect_url}}"><button>Learn More</button></a>
 </div>
 
 {{#if user}}

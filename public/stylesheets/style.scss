@@ -298,3 +298,9 @@ body {
   word-spacing: 0.8px;
   letter-spacing: 0.5px;
 }
+.buttons {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-evenly;
+  border: 1px solid lightblue;
+}
