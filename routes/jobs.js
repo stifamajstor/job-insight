@@ -82,6 +82,7 @@ router.get("/:id", (req, res, next) => {
           } else if (contractType === "permanent") {
             response.data.results[0].contract_time = "Permanent";
           }
+          console.log(response.data.results[0].id);
 
           if (req.user.favorite_jobs.includes(response.data.results[0].id)) {
             response.data.results[0].style = "active";
