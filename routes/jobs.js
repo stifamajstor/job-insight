@@ -18,11 +18,21 @@ router.get("/search", (req, res, next) => {
         let posted = response.data.results[i].created;
         response.data.results[i].created = moment(posted).fromNow();
 
-        // if (req.user.favorite_jobs.includes(response.data.results[i].id)) {
-        // if (i % 2 === 0) response.data.results[i].style = "active";
-        // }
+        let contractType = response.data.results[i].contract_time;
+        if (contractType === "full_time") {
+          response.data.results[i].contract_time = "Full Time";
+        } else if (contractType === "part_time") {
+          response.data.results[i].contract_time = "Part Time";
+        } else if (contractType === "permanent") {
+          response.data.results[i].contract_time = "Permanent";
+        }
       }
 
+      // if (req.user.favorite_jobs.includes(response.data.results[i].id)) {
+      // if (i % 2 === 0) response.data.results[i].style = "active";
+      // }
+      // }
+      // res.send(response.data.results);
       res.render("all-jobs.hbs", {
         allJobs: response.data.results,
         location: req.query.location,
@@ -48,6 +58,15 @@ router.get("/:id", (req, res, next) => {
       let posted = response.data.results[0].created;
       response.data.results[0].created = moment(posted).fromNow();
 
+      let contractType = response.data.results[0].contract_time;
+      if (contractType === "full_time") {
+        response.data.results[0].contract_time = "Full Time";
+      } else if (contractType === "part_time") {
+        response.data.results[0].contract_time = "Part Time";
+      } else if (contractType === "permanent") {
+        response.data.results[0].contract_time = "Permanent";
+      }
+
       // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
@@ -57,6 +76,9 @@ router.get("/:id", (req, res, next) => {
         location: req.query.location,
         user: req.user
       });
+    })
+    .catch(err => {
+      console.log(err);
     });
 });
 
