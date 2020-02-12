@@ -295,7 +295,7 @@ body {
   box-shadow: 0 1px 10px 0.5px #f1aa0f;
   cursor: pointer; }
 
-.favorite-btn.active {
+.active {
   background-color: #f1aa0f;
   box-shadow: 0 1px 10px 0.5px #f1aa0f; }
 
