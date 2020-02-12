@@ -53,7 +53,8 @@ router.get("/:id", (req, res, next) => {
     )
     .then(response => {
       let location = response.data.results[0].location.area;
-      let singleLoc = location[location.length - 1];
+      response.data.results[0].location = location[location.length - 1];
+      let singleLoc = response.data.results[0].location;
 
       let posted = response.data.results[0].created;
       response.data.results[0].created = moment(posted).fromNow();
@@ -70,7 +71,7 @@ router.get("/:id", (req, res, next) => {
       // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
-        location2: singleLoc,
+        singleLoc: singleLoc,
         addedToFav: false,
         jobTitle: req.query.jobTitle,
         location: req.query.location,
@@ -92,15 +93,30 @@ router.post("/favorite/:id", (req, res, next) => {
       `https://api.adzuna.com/v1/api/jobs/${req.query.location}/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${req.params.id}`
     )
     .then(response => {
-      console.log(response, "response");
       let location = response.data.results[0].location.area;
-      let singleLoc = location[location.length - 1];
+      response.data.results[0].location = location[location.length - 1];
+      let singleLoc = response.data.results[0].location;
+
+      let posted = response.data.results[0].created;
+      response.data.results[0].created = moment(posted).fromNow();
+
+      let contractType = response.data.results[0].contract_time;
+      if (contractType === "full_time") {
+        response.data.results[0].contract_time = "Full Time";
+      } else if (contractType === "part_time") {
+        response.data.results[0].contract_time = "Part Time";
+      } else if (contractType === "permanent") {
+        response.data.results[0].contract_time = "Permanent";
+      }
 
       // res.send(response.data.results[0]);
       res.render("./single-job.hbs", {
         jobData: response.data.results[0],
-        location: singleLoc,
-        addedToFav: true
+        singleLoc: singleLoc,
+        addedToFav: true,
+        jobTitle: req.query.jobTitle,
+        location: req.query.location,
+        user: req.user
       });
     })
     .catch(err => {
