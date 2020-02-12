@@ -61,7 +61,7 @@
         <a href="{{jobData.redirect_url}}"><button class="learn-more-btn">Learn More</button></a>
         {{#if user}}
         <form action="/jobs/favorite/{{jobData.id}}?location={{location}}" method="POST">
-            <button type="submit" class="favorite-btn">Favorite</button>
+            <button type="submit" class="favorite-btn {{style}}">Favorite</button>
         </form>
         {{/if}}
 

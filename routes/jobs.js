@@ -83,6 +83,11 @@ router.get("/:id", (req, res, next) => {
             response.data.results[0].contract_time = "Permanent";
           }
 
+          if (req.user.favorite_jobs.includes(response.data.results[0].id)) {
+            response.data.results[0].style = "active";
+            console.log(response.data.results[0].style);
+          }
+
           // res.send(response.data.results[0]);
           res.render("./single-job.hbs", {
             jobData: response.data.results[0],
