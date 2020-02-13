@@ -1,24 +1,3 @@
-<nav class="nav-bar-all-jobs">
-  <div class="logo">
-    <a href="#">Job Insight</a>
-  </div>
-  {{!-- //form --}}
-  <div>
-    {{#if user}}
-    <ul class="list-all-jobs">
-      <li class="item-all-jobs"><a href="/auth/logout">Log out</a></li>
-    </ul>
-    {{else}}
-    <ul>
-      <li class="item-all-jobs"><a href="/auth/signup">Sign up</a></li>
-      <li class="item-all-jobs"><a href="/auth/login">Log in</a></li>
-    </ul>
-    {{/if}}
-  </div>
-
-</nav>
-
-
 <div class="form-all-jobs">
   <form action="/jobs/search" method="GET">
     <input class="input-fields-all-jobs" name="jobTitle" placeholder="Job Title" type="text" />

@@ -56,17 +56,22 @@ router.get("/search", (req, res, next) => {
       console.log(err);
     });
 });
+
+//DISPLAY CREATE A JOB FORM
 router.get("/create", (req, res, next) => {
-  res.render("create-job.hbs");
+  if (!req.user) {
+    res.redirect("login.hbs");
+  }
+  res.render("create-job.hbs", { user: req.user });
 });
-
-router.get("/myJobs", (req, res, next) => {
-  Job.find({owner:req.user._id}).then(myjobs =>{
-    res.render("", myjobs)
-  })
+//DISPLAY CREATED JOBS
+router.get("/createdJobs", (req, res, next) => {
+  Job.find({ owner: req.user._id }).then(createdJobs => {
+    res.render("", createdJobs);
+  });
 });
-
-router.post("/", loginCheck, (req, res, next) => {
+//CREATE A JOB
+router.post("/", (req, res, next) => {
   console.log("CONSOLE OUTPUT HERE", req.body);
   const { title, company, description, contractType, redirectURL } = req.body;
   Job.create({
@@ -88,21 +93,21 @@ router.post("/", loginCheck, (req, res, next) => {
 });
 
 //DISPLAY CREATED JOBS
-router.get("/created", (req, res, next) => {
-  //perhaps check if user has any IDs in created jobs array and if so generate page accordingly
-  Job.findById(req.user._id)
-    .then(user => {
-      if (user.favorite_jobs.includes(req.params.id)) {
-        addedToFav = true;
-      } else {
-        addedToFav = false;
-      }
-    })
-    .then(output => {});
-});
+// router.get("/created", loginCheck, (req, res, next) => {
+//   //perhaps check if user has any IDs in created jobs array and if so generate page accordingly
+//   Job.findById(req.user._id)
+//     .then(user => {
+//       if (user.favorite_jobs.includes(req.params.id)) {
+//         addedToFav = true;
+//       } else {
+//         addedToFav = false;
+//       }
+//     })
+//     .then(output => {});
+// });
 
 //ADD TO FAV
-router.post("/favorite/:id", (req, res, next) => {
+router.post("/favorite/:id", loginCheck, (req, res, next) => {
   let userId = req.user._id;
 
   User.findOneAndUpdate(
@@ -183,7 +188,5 @@ router.get("/:id", (req, res, next) => {
         });
     });
 });
-
-//CREATE A JOB
 
 module.exports = router;

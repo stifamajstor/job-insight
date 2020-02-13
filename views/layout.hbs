@@ -12,13 +12,27 @@
 </head>
 
 <body>
+  <nav class="nav-bar">
+    <div class="logo">
+      <a href="/">Job Insight</a>
+    </div>
+    <div class="nav-items">
+      {{#if user}}
+      <ul class="list">
+        <li class="item"><a href="/jobs/created">Created Jobs</a></li>
+        <li class="item"><a href="/jobs/created">Favorite Jobs</a></li>
+        <li class="item"><a href="/auth/logout">Log out</a></li>
+      </ul>
+      {{else}}
+      <ul class="list">
+        <li class="item"><a href="/auth/login">Log in</a></li>
+        <li class="item"><a href="/auth/signup">Sign up</a></li>
+      </ul>
+      {{/if}}
+    </div>
+  </nav>
 
-  {{!-- <nav>
-    <a href="/">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    <a href="/auth/logout">Logout</a>
-  </nav> --}}
+
 
   {{{body}}}
 
