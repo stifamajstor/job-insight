@@ -154,7 +154,12 @@ router.get("/favorites", (req, res, next) => {
             response.data.results[i].styleButton = "btn-active";
           }
         }
-
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
         // res.send(response.data.results);
         res.render("favorite-jobs.hbs", {
           allJobs: response.data.results,
@@ -172,24 +177,41 @@ router.get("/favorites", (req, res, next) => {
 //ADD TO FAV
 router.post("/favorite/:id", loginCheck, (req, res, next) => {
   let userId = req.user._id;
-
-  User.findOneAndUpdate(
-    { _id: userId },
-    {
-      $push: { favorite_jobs: req.params.id }
-    }
-  )
-    .then(response => {
-      res.redirect(
-        url.format({
-          pathname: `/jobs/${req.params.id}`,
-          query: req.query
+  User.findById(userId).then(user => {
+    if (user.favorite_jobs.includes(req.params.id)) {
+      User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $pull: { favorite_jobs: req.params.id }
+        }
+      ).then(response => {
+        res.redirect(
+          url.format({
+            pathname: `/jobs/${req.params.id}`,
+            query: req.query
+          })
+        );
+      });
+    } else {
+      User.findOneAndUpdate(
+        { _id: userId },
+        {
+          $push: { favorite_jobs: req.params.id }
+        }
+      )
+        .then(response => {
+          res.redirect(
+            url.format({
+              pathname: `/jobs/${req.params.id}`,
+              query: req.query
+            })
+          );
         })
-      );
-    })
-    .catch(err => {
-      console.log(err);
-    });
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  });
 });
 //DISPLAY SINGLE JOB
 router.get("/:id", (req, res, next) => {
