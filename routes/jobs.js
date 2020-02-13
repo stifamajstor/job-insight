@@ -154,7 +154,12 @@ router.get("/favorites", (req, res, next) => {
             response.data.results[i].styleButton = "btn-active";
           }
         }
-
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
+        console.log(req.query.location, "LOCATION");
+        console.log(req.query.jobTitle, "TITLE");
         // res.send(response.data.results);
         res.render("favorite-jobs.hbs", {
           allJobs: response.data.results,
