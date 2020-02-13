@@ -40,7 +40,8 @@ router.get("/search", (req, res, next) => {
           req.user &&
           req.user.favorite_jobs.includes(response.data.results[i].id)
         ) {
-          response.data.results[i].style = "active";
+          response.data.results[i].styleStar = "active";
+          response.data.results[i].styleButton = "btn-active";
         }
       }
 
@@ -68,7 +69,8 @@ router.get("/create", (req, res, next) => {
 router.get("/created-jobs", (req, res, next) => {
   Job.find({ owner: req.user._id }).then(createdJobs => {
     // res.send(createdJobs);
-    res.render("created-jobs.hbs", { jobs: createdJobs });
+
+    res.render("created-jobs.hbs", { jobs: createdJobs, user: req.user });
   });
 });
 //CREATE A JOB
@@ -114,6 +116,55 @@ router.post("/", (req, res, next) => {
 //     })
 //     .then(output => {});
 // });
+
+//DISPLAY FAVORITES
+router.get("/favorites", (req, res, next) => {
+  User.findById(req.user._id).then(response => {
+    res.send(response);
+    axios
+      .get(
+        `https://api.adzuna.com/v1/api/jobs/de/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${response.favorite_jobs}`
+      )
+      .then(response => {
+        res.send(response.data);
+
+        for (let i = 0; i < response.data.results.length; i++) {
+          let arrCity = response.data.results[i].location.area;
+          response.data.results[i].city = arrCity[arrCity.length - 1];
+
+          let posted = response.data.results[i].created;
+          response.data.results[i].created = moment(posted).fromNow();
+
+          let contractType = response.data.results[i].contract_time;
+          if (contractType === "full_time") {
+            response.data.results[i].contract_time = "Full Time";
+          } else if (contractType === "part_time") {
+            response.data.results[i].contract_time = "Part Time";
+          } else if (contractType === "permanent") {
+            response.data.results[i].contract_time = "Permanent";
+          }
+          if (
+            req.user &&
+            req.user.favorite_jobs.includes(response.data.results[i].id)
+          ) {
+            response.data.results[i].styleStar = "active";
+            response.data.results[i].styleButton = "btn-active";
+          }
+        }
+
+        // res.send(response.data.results);
+        res.render("all-jobs.hbs", {
+          allJobs: response.data.results,
+          location: req.query.location,
+          jobTitle: req.query.jobTitle,
+          user: req.user
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  });
+});
 
 //ADD TO FAV
 router.post("/favorite/:id", loginCheck, (req, res, next) => {
@@ -179,7 +230,8 @@ router.get("/:id", (req, res, next) => {
             req.user &&
             req.user.favorite_jobs.includes(response.data.results[0].id)
           ) {
-            response.data.results[0].style = "active";
+            response.data.results[0].styleStar = "active";
+            response.data.results[0].styleButton = "btn-active";
           }
 
           // res.send(response.data.results[0]);

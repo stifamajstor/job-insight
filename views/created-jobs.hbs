@@ -12,21 +12,17 @@
 
 <div class="all-jobs-main-div">
     {{#each jobs}}
-    <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{location}}';" style="cursor: pointer;">
-        <button class="star-btn" type="submit">
+    <div class="job-div" onclick="location.href='/created/{{id}}';" style="cursor: pointer;">
+        {{!-- <button class="star-btn" type="submit">
             <ion-icon class="star {{style}}" name="star"></ion-icon>
-        </button>
+        </button> --}}
         <p class="job-title">
-            <strong>{{{title}}}</strong>
+            <strong>{{title}}</strong>
         </p>
-        <p>{{contract_time}}</p>
-        <p><strong>{{{company.display_name}}}</strong></p>
-        <p>{{created}}</p>
-        <p>
-            <ion-icon name="location-sharp"></ion-icon>{{{city}}}
-        </p>
+        <p>{{contractType}}</p>
+        <p><strong>{{company}}</strong></p>
+        <p>{{created_at}}</p>
 
-        {{!-- <p>{{{description}}}</p> --}}
     </div>
     {{/each}}
 </div>
