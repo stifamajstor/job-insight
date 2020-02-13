@@ -1,44 +1,52 @@
-<form action="/jobs" method="POST">
-    <label for="title">Title</label>
-    <input name="title" type="text" id="title">
-    <br>
+<div class="create-job-page">
+    <div class="post-job-form">
+        <form action="/jobs" method="POST">
 
-    <label for="company">Company</label>
-    <input name="company" type="text" id="company">
-    <br>
+            <div class="form-info">
+                {{!-- <h2>Create a job post</h2> --}}
+                <label for="title">Title</label>
+                <input name="title" type="text" id="title">
+                <label for="company">Company</label>
+                <input name="company" type="text" id="company">
 
-    <label for="description">Description</label>
-    <input type="text" name="description" id="description">
-    <br>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description">
 
-    <label for="contractType">Contract Type</label>
-    <input type="text" name="contractType" id="contractType">
-    <br>
+                <label for="contractType">Contract Type</label>
+                <input type="text" name="contractType" id="contractType">
 
-    <label for="redirectURL">RedirectURL</label>
-    <input type="text" name="redirectURL" id="redirectURL">
-    <br>
+                <label for="redirectURL">RedirectURL</label>
+                <input type="text" name="redirectURL" id="redirectURL">
 
-    <label for="location">Location</label>
-    <select name="" id="location">
-        <option value="gb">Great Britain</option>
-        <option value="at">Austria</option>
-        <option value="au">Australia</option>
-        <option value="br">Brasil</option>
-        <option value="ca">Canada</option>
-        <option value="de">Germany</option>
-        <option value="fr">France</option>
-        <option value="in">India</option>
-        <option value="it">Italy</option>
-        <option value="nl">Netherlands</option>
-        <option value="nz">New Zealand</option>
-        <option value="pl">Poland</option>
-        <option value="ru">Russia</option>
-        <option value="sg">Singapore</option>
-        <option value="us">United States</option>
-        <option value="za">South Africa</option>
-    </select>
-    <br>
+                <label for="location">Location</label>
+                <select name="" id="location">
+                    <option value="gb">Great Britain</option>
+                    <option value="at">Austria</option>
+                    <option value="au">Australia</option>
+                    <option value="br">Brasil</option>
+                    <option value="ca">Canada</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="in">India</option>
+                    <option value="it">Italy</option>
+                    <option value="nl">Netherlands</option>
+                    <option value="nz">New Zealand</option>
+                    <option value="pl">Poland</option>
+                    <option value="ru">Russia</option>
+                    <option value="sg">Singapore</option>
+                    <option value="us">United States</option>
+                    <option value="za">South Africa</option>
+                </select>
+                <div class="post-job-btn">
+                    <button class="apply-btn" type="submit">Create</button>
+                </div>
 
-    <button type="submit">Add</button>
-</form>
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+</div>

@@ -244,7 +244,6 @@ body {
 
 .star:hover {
   color: rgba(241, 170, 15, 1);
-  // background-color: yellow;
 }
 .nav-bar-all-jobs {
   display: flex;
@@ -355,7 +354,7 @@ body {
   box-shadow: 0 1px 10px 0.5px rgba(241, 170, 15, 1);
   cursor: pointer;
 }
-.active {
+.btn-active {
   background-color: rgba(241, 170, 15, 1);
   box-shadow: 0 1px 10px 0.5px rgba(241, 170, 15, 1);
 }
@@ -373,4 +372,32 @@ body {
 .buttons {
   margin: 14px 40px;
   // border: 1px solid red;
+}
+// ----------Post A Job Page------------
+.create-job-page {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 10vh;
+}
+.post-job-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0.4px 8px 0.1px grey;
+  height: 70vh;
+  width: 30vw;
+}
+.post-job-form input {
+  padding-bottom: 20px;
+}
+.form-info {
+  display: flex;
+  flex-direction: column;
+  // border: 1px solid red;
+  width: 20vw;
+  text-align: center;
+}
+.post-job-btn {
+  margin-top: 20px;
 }
