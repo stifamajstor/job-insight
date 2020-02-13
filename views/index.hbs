@@ -1,29 +1,3 @@
-<nav class="nav-bar">
-  <div class="logo">
-    <a href="index.hbs">Job Insight</a>
-  </div>
-  <div class="nav-items">
-    {{#if user}}
-    <ul class="list">
-      <li class="item"><a href="/auth/logout">Log out</a></li>
-      <li class="item"><a href="/jobs/created">Created Jobs</a></li>
-    </ul>
-    {{else}}
-    <ul class="list">
-      <li class="item"><a href="/auth/login">Log in</a></li>
-      <li class="item"><a href="/auth/signup">Sign up</a></li>
-    </ul>
-    {{/if}}
-  </div>
-
-
-
-  {{!-- <ul class="list">
-    <li class="item"><a href="/auth/login">Login</a></li>
-    <li class="item"><a href="/auth/signup">Sign Up</a></li>
-  </ul> --}}
-</nav>
-
 <div class="form">
   <form action="/jobs/search" method="GET">
     <input class="input-fields" name="jobTitle" placeholder="Job Title" type="text" />
