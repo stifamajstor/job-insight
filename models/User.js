@@ -5,7 +5,8 @@ const userSchema = new Schema(
   {
     username: String,
     password: String,
-    favorite_jobs: Array
+    favorite_jobs: Array,
+    created_jobs: Array
   },
   {
     timestamps: {
