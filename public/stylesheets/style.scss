@@ -16,7 +16,8 @@ body {
 .login-page {
   background-image: url(/images/login1.jpg);
   background-size: cover;
-  height: 100vh;
+  height: 88vh;
+  z-index: 1;
   // filter: blur(8px);
 }
 .login-icons {
@@ -137,10 +138,13 @@ body {
   width: 24%;
   margin-left: 39%;
   box-shadow: 0 3px 20px 2.5px grey;
+  z-index: 3;
 }
 .signup-page {
-  background-image: url();
-  height: 100vh;
+  background-image: url(/images/login1.jpg);
+  background-size: cover;
+
+  height: 88vh;
 }
 .login-h2,
 .signup-h2 {
@@ -148,6 +152,7 @@ body {
   font-size: 35px;
   padding-top: 18vh;
   padding-left: 4vh;
+  z-index: 2;
 }
 
 .login-inputs,
@@ -182,6 +187,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 25px 25px 25px 0px;
+  z-index: 999;
 }
 .icon {
   margin-left: 120px;
