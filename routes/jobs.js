@@ -56,7 +56,73 @@ router.get("/search", (req, res, next) => {
       console.log(err);
     });
 });
+router.get("/create", (req, res, next) => {
+  res.render("create-job.hbs");
+});
 
+router.get("/myJobs", (req, res, next) => {
+  Job.find({owner:req.user._id}).then(myjobs =>{
+    res.render("", myjobs)
+  })
+});
+
+router.post("/", loginCheck, (req, res, next) => {
+  console.log("CONSOLE OUTPUT HERE", req.body);
+  const { title, company, description, contractType, redirectURL } = req.body;
+  Job.create({
+    title,
+    company,
+    description,
+    contractType,
+    redirectURL,
+    owner: req.user._id
+  })
+    .then(() => {
+      //maybe add new job id in the User DB?
+      res.redirect("/");
+    })
+    .catch(err => {
+      console.log(err, "ERROR HERE");
+      next(err);
+    });
+});
+
+//DISPLAY CREATED JOBS
+router.get("/created", (req, res, next) => {
+  //perhaps check if user has any IDs in created jobs array and if so generate page accordingly
+  Job.findById(req.user._id)
+    .then(user => {
+      if (user.favorite_jobs.includes(req.params.id)) {
+        addedToFav = true;
+      } else {
+        addedToFav = false;
+      }
+    })
+    .then(output => {});
+});
+
+//ADD TO FAV
+router.post("/favorite/:id", (req, res, next) => {
+  let userId = req.user._id;
+
+  User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $push: { favorite_jobs: req.params.id }
+    }
+  )
+    .then(response => {
+      res.redirect(
+        url.format({
+          pathname: `/jobs/${req.params.id}`,
+          query: req.query
+        })
+      );
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
 //DISPLAY SINGLE JOB
 router.get("/:id", (req, res, next) => {
   let addedToFav;
@@ -119,66 +185,5 @@ router.get("/:id", (req, res, next) => {
 });
 
 //CREATE A JOB
-
-router.get("/create", loginCheck, (req, res) => {
-  res.render("/create-job.hbs");
-});
-router.post("/jobs", loginCheck, (req, res, next) => {
-  console.log("CONSOLE OUTPUT HERE", req.body);
-  const { title, company, description, contractType, redirectURL } = req.body;
-  Job.create({
-    title,
-    company,
-    description,
-    contractType,
-    redirectURL,
-    owner: req.user._id
-  })
-    .then(() => {
-      //maybe add new job id in the User DB?
-      res.redirect("/");
-    })
-    .catch(err => {
-      console.log(err, "ERROR HERE");
-      next(err);
-    });
-});
-
-//DISPLAY CREATED JOBS
-router.get("/created", (req, res, next) => {
-  //perhaps check if user has any IDs in created jobs array and if so generate page accordingly
-  Job.findById(req.user._id)
-    .then(user => {
-      if (user.favorite_jobs.includes(req.params.id)) {
-        addedToFav = true;
-      } else {
-        addedToFav = false;
-      }
-    })
-    .then(output => {});
-});
-
-//ADD TO FAV
-router.post("/favorite/:id", (req, res, next) => {
-  let userId = req.user._id;
-
-  User.findOneAndUpdate(
-    { _id: userId },
-    {
-      $push: { favorite_jobs: req.params.id }
-    }
-  )
-    .then(response => {
-      res.redirect(
-        url.format({
-          pathname: `/jobs/${req.params.id}`,
-          query: req.query
-        })
-      );
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
 
 module.exports = router;
