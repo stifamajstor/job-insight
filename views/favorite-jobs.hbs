@@ -11,7 +11,7 @@
 </div>
 <div class="favorited">
     <div class="favorited-jobs">
-        {{#each allJobs}}
+        {{!-- {{#each allJobs}}
         <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
             <button class="star-btn" type="submit">
                 <ion-icon class="star {{styleStar}}" name="star"></ion-icon>
@@ -26,31 +26,33 @@
                 <ion-icon name="location-sharp"></ion-icon>{{{city}}}
             </p>
 
-            <div class="all-jobs-main-div">
-                {{#each allJobs}}
-                <div class="job-div" onclick="location.href='/jobs/{{id}}?location=de';" style="cursor: pointer;">
-                    <button class="star-btn" type="submit">
-                        <ion-icon class="star {{styleStar}}" name="star"></ion-icon>
-                    </button>
-                    <p class="job-title">
-                        <strong>{{{title}}}</strong>
-                    </p>
-                    <p>{{contract_time}}</p>
-                    <p><strong>{{{company.display_name}}}</strong></p>
-                    <p>{{created}}</p>
-                    <p>
-                        <ion-icon name="location-sharp"></ion-icon>{{{city}}}
-                    </p>
+            <div class="all-jobs-main-div"> --}}
+        {{#each allJobs}}
+        <div class="job-div" onclick="location.href='/jobs/{{id}}?location=de';" style="cursor: pointer;">
+            <button class="star-btn" type="submit">
+                <ion-icon class="star {{styleStar}}" name="star"></ion-icon>
+            </button>
+            <p class="job-title">
+                <strong>{{{title}}}</strong>
+            </p>
+            <p>{{contract_time}}</p>
+            <p><strong>{{{company.display_name}}}</strong></p>
+            <p>{{created}}</p>
+            <p>
+                <ion-icon name="location-sharp"></ion-icon>{{{city}}}
+            </p>
 
-                </div>
-                {{/each}}
-                <div id='map' style='width: 400px; height: 300px;'></div>
-                <script>
-                    mapboxgl.accessToken = 'pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ';
-                    var map = new mapboxgl.Map({
-                        container: 'map',
-                        style: 'mapbox://styles/mapbox/streets-v11'
-                    });
-                </script>
+        </div>
+        {{/each}}
 
-            </div>
+
+        <div id='map' style='width: 400px; height: 300px;'></div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11'
+            });
+        </script>
+
+    </div>
