@@ -119,13 +119,17 @@ router.post("/", (req, res, next) => {
 //DISPLAY FAVORITES
 router.get("/favorites", (req, res, next) => {
   User.findById(req.user._id).then(response => {
-    res.send(response);
+    // res.send(response);
+
+    let joinedIDs = response.favorite_jobs.join(" ");
+    console.log(joinedIDs);
+
     axios
       .get(
-        `https://api.adzuna.com/v1/api/jobs/de/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${response.favorite_jobs}`
+        `https://api.adzuna.com/v1/api/jobs/de/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}%09&results_per_page=20&what_or=${joinedIDs}`
       )
       .then(response => {
-        res.send(response.data);
+        // res.send(response.data);
 
         for (let i = 0; i < response.data.results.length; i++) {
           let arrCity = response.data.results[i].location.area;
@@ -152,7 +156,7 @@ router.get("/favorites", (req, res, next) => {
         }
 
         // res.send(response.data.results);
-        res.render("all-jobs.hbs", {
+        res.render("favorite-jobs.hbs", {
           allJobs: response.data.results,
           location: req.query.location,
           jobTitle: req.query.jobTitle,
