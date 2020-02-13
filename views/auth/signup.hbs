@@ -2,12 +2,17 @@
   <h2 class="signup-h2">Signup</h2>
 
   <div class="signup-box">
+    <div class="login-icons">
+      <div class="username-icon">
+        <ion-icon name="person"></ion-icon>
 
+      </div>
+      <ion-icon name="lock-closed"></ion-icon>
+
+    </div>
     <form action="/auth/signup" method="POST" id="form-container">
-      <ion-icon class="icon" name="person"></ion-icon>
       <input id="username" class="signup-inputs" type="text" name="username" placeholder="Username">
 
-      <ion-icon class="icon" name="lock-closed"></ion-icon>
       <input id="password" class="signup-inputs" type="password" name="password" placeholder="Password">
       <br>
       {{#if message }}
