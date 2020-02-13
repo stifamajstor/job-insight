@@ -13,6 +13,15 @@ body {
   background-size: cover;
   height: 100vh; }
 
+.login-icons {
+  display: flex;
+  flex-direction: column;
+  padding-top: 4.4vh;
+  font-size: 20px; }
+
+.username-icon {
+  padding-bottom: 6px; }
+
 .logo {
   display: flex;
   align-items: center;
@@ -110,7 +119,8 @@ body {
   display: flex;
   justify-content: center;
   width: 24%;
-  margin-left: 39%; }
+  margin-left: 39%;
+  box-shadow: 0 3px 20px 2.5px grey; }
 
 .signup-page {
   background-image: url();
@@ -120,7 +130,8 @@ body {
 .signup-h2 {
   color: #3498db;
   font-size: 35px;
-  padding-top: 18vh; }
+  padding-top: 18vh;
+  padding-left: 4vh; }
 
 .login-inputs,
 .signup-inputs {
@@ -151,8 +162,7 @@ body {
 #form-container {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px;
-  box-shadow: 0 3px 20px 2.5px grey; }
+  padding: 25px 25px 25px 0px; }
 
 .icon {
   margin-left: 120px; }
