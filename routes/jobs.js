@@ -44,7 +44,6 @@ router.get("/search", (req, res, next) => {
           response.data.results[i].styleButton = "btn-active";
         }
       }
-
       // res.send(response.data.results);
       res.render("all-jobs.hbs", {
         allJobs: response.data.results,
