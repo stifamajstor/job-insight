@@ -1,6 +1,6 @@
 <nav class="nav-bar">
   <div class="logo">
-    <a href="#">Job Insight</a>
+    <a href="index.hbs">Job Insight</a>
   </div>
   <div class="nav-items">
     {{#if user}}
@@ -8,9 +8,9 @@
       <li class="item"><a href="/auth/logout">Log out</a></li>
     </ul>
     {{else}}
-    <ul>
-      <li class="item"><a href="/auth/signup">Sign up</a></li>
+    <ul class="list">
       <li class="item"><a href="/auth/login">Log in</a></li>
+      <li class="item"><a href="/auth/signup">Sign up</a></li>
     </ul>
     {{/if}}
   </div>

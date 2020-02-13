@@ -25,7 +25,6 @@ body {
   text-align: center;
   justify-content: space-around;
   text-decoration: none;
-  border: 1px solid red;
   font-size: 20px;
   color: white;
   padding-left: 25px;
@@ -100,17 +99,15 @@ body {
   text-decoration: none;
   display: flex;
   justify-content: center;
-  padding: 5px 20px;
-  color: black;
-  border-bottom: 2px solid black;
+  padding: 5px 10px;
+  color: white;
+  // border-bottom: 2px solid black;
 }
 .item > a:hover,
 .item-all-jobs > a:hover {
   /* background-color: white; */
-  color: white;
-  border: 2px solid rgba(52, 152, 219, 1);
+  color: black;
   border-bottom: 1px solid black;
-  border-radius: 5px;
 }
 
 .main-hr {
@@ -119,7 +116,10 @@ body {
   margin-top: 20px;
   box-shadow: 0 3px 20px 2.5px #3498db;
 }
-
+.nav-items {
+  // background-color: white;
+  display: flex;
+}
 //----------LOGIN HBS PAGE and Register HBS---------/
 .login-box,
 .signup-box {
@@ -127,7 +127,10 @@ body {
   justify-content: center;
   width: 24%;
   margin-left: 39%;
-  margin-top: 12vh;
+}
+.signup-page {
+  background-image: url();
+  height: 100vh;
 }
 .login-h2,
 .signup-h2 {
@@ -167,6 +170,8 @@ body {
 #form-container {
   display: flex;
   flex-direction: column;
+  padding: 20px 20px;
+  box-shadow: 0 3px 20px 2.5px grey;
 }
 .icon {
   margin-left: 120px;
@@ -324,8 +329,9 @@ body {
   color: white;
   height: 40px;
   width: 120px;
+  font-size: 17px;
   border-radius: 5px;
-  // background-color: rgba(52, 152, 219, 1);
+  background-color: rgba(52, 152, 219, 1);
 }
 .learn-more-btn:hover,
 .apply-btn:hover {
