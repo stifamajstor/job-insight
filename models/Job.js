@@ -9,7 +9,7 @@ const jobSchema = new Schema(
     description: String,
     contractType: String,
     redirectURL: String,
-    address: String,
+    location: String,
     owner: {
       type: Schema.Types.ObjectId,
       ref: "User"

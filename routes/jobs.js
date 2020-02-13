@@ -65,21 +65,30 @@ router.get("/create", (req, res, next) => {
   res.render("create-job.hbs", { user: req.user });
 });
 //DISPLAY CREATED JOBS
-router.get("/createdJobs", (req, res, next) => {
+router.get("/created-jobs", (req, res, next) => {
   Job.find({ owner: req.user._id }).then(createdJobs => {
-    res.render("", createdJobs);
+    // res.send(createdJobs);
+    res.render("created-jobs.hbs", { jobs: createdJobs });
   });
 });
 //CREATE A JOB
 router.post("/", (req, res, next) => {
   console.log("CONSOLE OUTPUT HERE", req.body);
-  const { title, company, description, contractType, redirectURL } = req.body;
+  const {
+    title,
+    company,
+    description,
+    contractType,
+    redirectURL,
+    location
+  } = req.body;
   Job.create({
     title,
     company,
     description,
     contractType,
     redirectURL,
+    location,
     owner: req.user._id
   })
     .then(() => {
