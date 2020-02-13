@@ -9,24 +9,27 @@
         </button>
     </form>
 </div>
+<div class="favorited">
+    <div class="favorited-jobs">
+        {{#each allJobs}}
+        <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
+            <button class="star-btn" type="submit">
+                <ion-icon class="star {{styleStar}}" name="star"></ion-icon>
+            </button>
+            <p class="job-title">
+                <strong>{{{title}}}</strong>
+            </p>
+            <p>{{contract_time}}</p>
+            <p><strong>{{{company.display_name}}}</strong></p>
+            <p>{{created}}</p>
+            <p>
+                <ion-icon name="location-sharp"></ion-icon>{{{city}}}
+            </p>
 
-<div class="all-jobs-main-div">
-    {{#each allJobs}}
-    <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-        <button class="star-btn" type="submit">
-            <ion-icon class="star {{style}}" name="star"></ion-icon>
-        </button>
-        <p class="job-title">
-            <strong>{{{title}}}</strong>
-        </p>
-        <p>{{contract_time}}</p>
-        <p><strong>{{{company.display_name}}}</strong></p>
-        <p>{{created}}</p>
-        <p>
-            <ion-icon name="location-sharp"></ion-icon>{{{city}}}
-        </p>
-
-        {{!-- <p>{{{description}}}</p> --}}
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
+    <div class="map">
+
+    </div>
 </div>

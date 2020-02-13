@@ -10,15 +10,13 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 79vh;
   font-family: Arial, Helvetica, sans-serif;
 }
 .login-page {
   background-image: url(/images/login1.jpg);
   background-size: cover;
-  height: 88vh;
+  height: 92vh;
   z-index: 1;
-  // filter: blur(8px);
 }
 .login-icons {
   display: flex;
@@ -47,6 +45,7 @@ body {
 .form {
   padding-top: 15vh;
   display: flex;
+  // height: 20vh;
   justify-content: center;
   align-content: center;
 }
@@ -143,8 +142,7 @@ body {
 .signup-page {
   background-image: url(/images/login1.jpg);
   background-size: cover;
-
-  height: 88vh;
+  height: 92vh;
 }
 .login-h2,
 .signup-h2 {
@@ -152,7 +150,9 @@ body {
   font-size: 35px;
   padding-top: 18vh;
   padding-left: 4vh;
+  padding-bottom: 50px;
   z-index: 2;
+  margin: 0;
 }
 
 .login-inputs,
@@ -176,6 +176,10 @@ body {
   color: white;
   transition: 0.3s;
 }
+.login-btn,
+.signup-btn {
+  outline: 0;
+}
 
 .signup-h2,
 .login-h2 {
@@ -187,7 +191,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 25px 25px 25px 0px;
-  z-index: 999;
 }
 .icon {
   margin-left: 120px;
@@ -208,13 +211,13 @@ body {
   // height: 15vh;
   padding: 0 0.8vw;
   height: auto;
-  // border: 1.6px 1.6px 0px 1.6px solid rgba(189, 195, 199, 1);
   border-top: 1.6px solid rgba(189, 195, 199, 1);
   border-right: 1.6px solid rgba(189, 195, 199, 1);
-
   border-left: 1.6px solid rgba(189, 195, 199, 1);
-
   font-size: 80%;
+}
+.job-div:last-child {
+  border-bottom: 1.6px solid rgba(189, 195, 199, 1);
 }
 .job-div > p {
   font-size: 15px;
@@ -268,15 +271,15 @@ body {
 
 .input-fields-all-jobs {
   background-color: rgba(236, 240, 241, 1);
-  height: 1.6vw;
+  height: 2.6vw;
   width: 28vh;
   border-radius: 10px;
 }
 
 .btn-all-jobs {
-  // display: flex;
+  padding-bottom: 10px;
   justify-content: center;
-  height: 30px;
+  height: 40px;
   width: 60px;
   border-radius: 5px;
   cursor: pointer;
@@ -286,6 +289,9 @@ body {
 .btn-all-jobs:hover {
   background-color: rgba(52, 152, 219, 1);
   color: white;
+}
+.btn-all-jobs:focus {
+  outline: none;
 }
 .job-title {
   color: rgba(52, 152, 219, 1);
@@ -337,7 +343,11 @@ body {
   padding: 20px 400px;
   box-shadow: 0 0.4px 8px 0.1px grey;
 }
-
+.learn-more-btn,
+.apply-btn,
+.favorite-btn {
+  outline: 0;
+}
 .learn-more-btn,
 .apply-btn,
 .favorite-btn {
@@ -363,10 +373,6 @@ body {
 .btn-active {
   background-color: rgba(241, 170, 15, 1);
   box-shadow: 0 1px 10px 0.5px rgba(241, 170, 15, 1);
-}
-.map {
-  // border: 2px solid darkgrey;
-  height: 37vh;
 }
 
 .main-info {
@@ -404,6 +410,29 @@ body {
   width: 20vw;
   text-align: center;
 }
+.form-info input {
+  text-align: center;
+}
 .post-job-btn {
   margin-top: 20px;
+}
+//--------Favorited-------
+.favorited-jobs {
+  width: 30vw;
+  min-width: 200px;
+  padding: 5vh 1vw;
+
+  display: flex;
+  flex-direction: column;
+}
+.favorited {
+  display: flex;
+  border: 1px solid red;
+}
+.map {
+  display: flex;
+  margin-top: 40px;
+  height: 75vh;
+  width: 66.5vw;
+  border: 1px solid blue;
 }
