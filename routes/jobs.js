@@ -18,7 +18,7 @@ const loginCheck = (req, res, next) => {
 router.get("/search", (req, res, next) => {
   axios
     .get(
-      `https://api.adzuna.com/v1/api/jobs/${req.query.location}/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=20&what=${req.query.jobTitle}`
+      `https://api.adzuna.com/v1/api/jobs/${req.query.location}/search/1?app_id=${process.env.ADZUNA_API_ID}&app_key=${process.env.ADZUNA_API_KEY}&results_per_page=100&what=${req.query.jobTitle}`
     )
     .then(response => {
       for (let i = 0; i < response.data.results.length; i++) {
