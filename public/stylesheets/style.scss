@@ -70,8 +70,11 @@ body {
   width: 80px;
   border-radius: 5px;
   background-color: rgba(52, 152, 219, 1);
+  cursor: pointer;
 }
-
+.btn:focus {
+  outline: 0;
+}
 .btn:hover {
   background-color: rgba(52, 152, 219, 1);
   color: white;
@@ -209,7 +212,7 @@ body {
   // display: flex;
   // flex-direction: column;
   // height: 15vh;
-  padding: 0 0.8vw;
+  padding: 2px 0.8vw;
   height: auto;
   border-top: 1.6px solid rgba(189, 195, 199, 1);
   border-right: 1.6px solid rgba(189, 195, 199, 1);
@@ -217,6 +220,9 @@ body {
   font-size: 80%;
 }
 .job-div:last-child {
+  border-bottom: 1.6px solid rgba(189, 195, 199, 1);
+}
+.favorited-jobs:last-child {
   border-bottom: 1.6px solid rgba(189, 195, 199, 1);
 }
 .job-div > p {
@@ -420,19 +426,21 @@ body {
 .favorited-jobs {
   width: 30vw;
   min-width: 200px;
-  padding: 5vh 1vw;
-
-  display: flex;
-  flex-direction: column;
+  padding: 0vh 1vw;
+  margin-top: 5vh;
+  // display: flex;
+  // flex-direction: row;
+  height: 72vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 .favorited {
   display: flex;
-  border: 1px solid red;
 }
 .map {
   display: flex;
   margin-top: 40px;
   height: 75vh;
   width: 66.5vw;
-  border: 1px solid blue;
+  position: fixed;
 }

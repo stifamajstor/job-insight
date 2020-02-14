@@ -11,22 +11,7 @@
 </div>
 <div class="favorited">
     <div class="favorited-jobs">
-        {{!-- {{#each allJobs}}
-        <div class="job-div" onclick="location.href='/jobs/{{id}}?location={{../location}}';" style="cursor: pointer;">
-            <button class="star-btn" type="submit">
-                <ion-icon class="star {{styleStar}}" name="star"></ion-icon>
-            </button>
-            <p class="job-title">
-                <strong>{{{title}}}</strong>
-            </p>
-            <p>{{contract_time}}</p>
-            <p><strong>{{{company.display_name}}}</strong></p>
-            <p>{{created}}</p>
-            <p>
-                <ion-icon name="location-sharp"></ion-icon>{{{city}}}
-            </p>
 
-            <div class="all-jobs-main-div"> --}}
         {{#each allJobs}}
         <div class="job-div" onclick="location.href='/jobs/{{id}}?location=de';" style="cursor: pointer;">
             <button class="star-btn" type="submit">
@@ -46,7 +31,11 @@
         {{/each}}
 
 
-        <div id='map' style='width: 400px; height: 300px;'></div>
+
+
+
+    </div>
+    <div class="map" id='map'>
         <script>
             let coordinates = {{{ coordinates }}}
             console.log(coordinates)
@@ -74,5 +63,4 @@
             }
 
         </script>
-
     </div>
