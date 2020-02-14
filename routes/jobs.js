@@ -131,12 +131,18 @@ router.get("/favorites", (req, res, next) => {
       .then(response => {
         // res.send(response.data);
 
+        let coordinates = [];
         for (let i = 0; i < response.data.results.length; i++) {
           let arrCity = response.data.results[i].location.area;
           response.data.results[i].city = arrCity[arrCity.length - 1];
 
           let posted = response.data.results[i].created;
           response.data.results[i].created = moment(posted).fromNow();
+
+          coordinates.push([
+            response.data.results[i].longitude,
+            response.data.results[i].latitude
+          ]);
 
           let contractType = response.data.results[i].contract_time;
           if (contractType === "full_time") {
@@ -154,18 +160,15 @@ router.get("/favorites", (req, res, next) => {
             response.data.results[i].styleButton = "btn-active";
           }
         }
-        console.log(req.query.location, "LOCATION");
-        console.log(req.query.jobTitle, "TITLE");
-        console.log(req.query.location, "LOCATION");
-        console.log(req.query.jobTitle, "TITLE");
-        console.log(req.query.location, "LOCATION");
-        console.log(req.query.jobTitle, "TITLE");
+        console.log(coordinates);
+
         // res.send(response.data.results);
         res.render("favorite-jobs.hbs", {
           allJobs: response.data.results,
           location: req.query.location,
           jobTitle: req.query.jobTitle,
-          user: req.user
+          user: req.user,
+          coordinates: JSON.stringify(coordinates)
         });
       })
       .catch(err => {
