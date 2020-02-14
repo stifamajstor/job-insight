@@ -37,10 +37,29 @@
     </div>
     <div class="map" id='map'>
         <script>
+            let coordinates = {{{ coordinates }}}
+            console.log(coordinates)
+            const geolocate = new mapboxgl.GeolocateControl({
+                showUserLocation: true,
+                trackUserLocation: true
+            })
+
             mapboxgl.accessToken = 'pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ';
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11'
+                style: 'mapbox://styles/mapbox/light-v10',
+                zoom: 3
             });
+
+            const marker = new mapboxgl.Marker(
+                { draggable: false }
+            );
+            for (let i = 0; i < coordinates.length; i++) {
+
+                marker.setLngLat(coordinates[i]);
+                marker.addTo(map);
+                console.log(coordinates[i])
+            }
+
         </script>
     </div>
