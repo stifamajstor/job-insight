@@ -58,18 +58,19 @@
             mapboxgl.accessToken = 'pk.eyJ1Ijoic3RpZmFtYWpzdG9yIiwiYSI6ImNrNmt4dm5wYTA1ZnQzbmxpNWd3N2F1Y3kifQ.G19vSaN3Jp--2ruqN8L_bQ';
             var map = new mapboxgl.Map({
                 container: 'map',
-                style: 'mapbox://styles/mapbox/light-v10',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [13.4, 52.52],
                 zoom: 3
             });
 
-            const marker = new mapboxgl.Marker(
-                { draggable: false }
-            );
             for (let i = 0; i < coordinates.length; i++) {
+                console.log("test", coordinates[i])
+                let marker = new mapboxgl.Marker(
+                    { draggable: false }
+                );
 
                 marker.setLngLat(coordinates[i]);
                 marker.addTo(map);
-                console.log(coordinates[i])
             }
 
         </script>
