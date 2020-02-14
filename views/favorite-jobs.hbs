@@ -51,6 +51,8 @@
                 center: [13.4, 52.52],
                 zoom: 3
             });
+            map.addControl(geolocate, 'top-right');
+            map.addControl(new mapboxgl.NavigationControl());
 
             for (let i = 0; i < coordinates.length; i++) {
                 console.log("test", coordinates[i])
