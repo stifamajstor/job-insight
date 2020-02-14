@@ -60,7 +60,11 @@ body {
   height: 50px;
   width: 80px;
   border-radius: 5px;
-  background-color: #3498db; }
+  background-color: #3498db;
+  cursor: pointer; }
+
+.btn:focus {
+  outline: 0; }
 
 .btn:hover {
   background-color: #3498db;
@@ -184,7 +188,7 @@ body {
   flex-direction: column; }
 
 .job-div {
-  padding: 0 0.8vw;
+  padding: 2px 0.8vw;
   height: auto;
   border-top: 1.6px solid #bdc3c7;
   border-right: 1.6px solid #bdc3c7;
@@ -192,6 +196,9 @@ body {
   font-size: 80%; }
 
 .job-div:last-child {
+  border-bottom: 1.6px solid #bdc3c7; }
+
+.favorited-jobs:last-child {
   border-bottom: 1.6px solid #bdc3c7; }
 
 .job-div > p {
@@ -375,19 +382,20 @@ body {
 .favorited-jobs {
   width: 30vw;
   min-width: 200px;
-  padding: 5vh 1vw;
-  display: flex;
-  flex-direction: column; }
+  padding: 0vh 1vw;
+  margin-top: 5vh;
+  height: 72vh;
+  overflow: scroll;
+  overflow-x: hidden; }
 
 .favorited {
-  display: flex;
-  border: 1px solid red; }
+  display: flex; }
 
 .map {
   display: flex;
   margin-top: 40px;
   height: 75vh;
   width: 66.5vw;
-  border: 1px solid blue; }
+  position: fixed; }
 
 /*# sourceMappingURL=style.css.map */
