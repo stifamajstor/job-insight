@@ -8,6 +8,7 @@
     "dev-windows": "nodemon ./bin/www"
   },
   "dependencies": {
+    "mquery": ">=3.2.3",
     "axios": "^0.21.1",
     "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
